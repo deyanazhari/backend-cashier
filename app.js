@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
+app.post('/categories', indexRouter);
 // mongoose.connect('mongodb://localhost:27017/');
 
 //connect to mongodb
