@@ -20,3 +20,4 @@ const Schema = mongoose.Schema({
 {
     timestamps:{currentTime:()=> Math.floor(Date.now() / 1000)}
 })
+export default mongoose.model('Category',Schema);

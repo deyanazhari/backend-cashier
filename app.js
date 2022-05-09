@@ -1,14 +1,14 @@
 import express from 'express';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
+
 import indexRouter  from './routes/index.js';
 const env = dotenv.config().parsed;
 var app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 app.use('/', indexRouter);
-app.post('/categories', indexRouter);
+
 // mongoose.connect('mongodb://localhost:27017/');
 
 //connect to mongodb
