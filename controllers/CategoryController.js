@@ -1,7 +1,7 @@
 import category from '../models/Category.js';
 const index = async(req, res) => { 
     try{
-        const categories = await category.find();
+        const categories = await category.find({status:'active'});
         if(!categories){throw{code : 500, message : "Get categories failed"}}
         return res.status(200).json({
             status : true,
