@@ -5,6 +5,17 @@ const register = async(req, res) => {
         if(!req.body.fullname){throw{code:428,message:'Fullname is required'}}
         if(!req.body.email){throw{code:428,message:'Email is required'}}
         if(!req.body.password){throw{code:428,message:'Password is required'}}
+
+        //check if password match
+        if(req.body.password !== req.body.retype_password){
+            throw{code:428,message:'PASSWORD_MUST_MATCH'}
+        }
+        //check is email exist
+        const email = await user.findOne({email:req.body.email});
+        if(email){
+            throw{code:409  ,message:'EMAIL_EXIST'}
+        }
+
     
 
     const newUser = new user({
